@@ -41,10 +41,36 @@ app.post('/fortunes', (request, response) => {
     response.status(200).json({
         status:'ok',
         body : {
-            message : "New fortune created"
+            message : "New fortune created",
+            ...fortune,    
         }
     })
 ;})
+
+app.patch('/fortunes/:id', (request,response)=> {
+    const fortune = data.find(fortune => fortune.id === Number(request.params.id));
+    if (!fortune) {
+        response.status(404).json({
+            status:'ok',
+            body : {
+                message : "Can't find this fortune"
+            }
+        });
+    }
+    const update= {
+        ...fortune,
+        ...request.body,
+    }
+    data[request.params.id]=update;
+    fs.writeFile("./data/example.json", JSON.stringify(data), (error) => {if (error) console.log(error)});
+    response.status(200).json({
+        status:'ok',
+        body : {
+            result : "The fortune have been updated",
+            ...update,
+        }
+    })
+})
 
 
 export default app;
