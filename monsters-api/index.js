@@ -1,9 +1,11 @@
 import express from "express";
 const app = express();
-import { getAll, getOne } from "./controllers/monsterController.js";
-  
-app.get('/monsters', getAll);
-app.get('/monsters/:id', getOne);
+import monsterRouter from './Routers/monsterRouter.js'
+import bodyParser from 'body-parser';
+
+app.use(bodyParser.json());
+
+app.use('/monsters', monsterRouter);
 
 app.use( (error, request, response, next)=> {
     //Error handeling middelware

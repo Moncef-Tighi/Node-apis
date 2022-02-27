@@ -7,3 +7,7 @@ export function fetchAll(callback) {
 export function fetchOne(id,callback) {
     db.query(`SELECT * FROM monsters WHERE id= ?`,[id] , callback);
 }
+
+export function createOne(monster, callback) {
+    db.query(`INSERT INTO monsters(name, personalité) VALUES(?, ?)`,[monster.name, monster.personnalité] , callback);
+}
