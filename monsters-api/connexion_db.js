@@ -17,4 +17,6 @@ function connexion() {
     return db
 }
 
-export default connexion;
+const db=connexion();
+
+export default db;
