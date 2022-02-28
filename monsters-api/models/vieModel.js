@@ -13,5 +13,7 @@ export function fetchOne(id,callback) {
 }
 
 export function createOne(monster, callback) {
-    db.query(`INSERT INTO vie(name, personalité) VALUES(?, ?)`,[monster.name, monster.personnalité] , callback);
+    //UnImplemanted
+    return false
+    //db.query(`INSERT INTO vie(name, personalité) VALUES(?, ?)`,[monster.name, monster.personnalité] , callback);
 }
