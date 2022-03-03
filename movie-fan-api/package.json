@@ -1,0 +1,17 @@
+{
+  "name": "movie-fan-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
+  },
+  "type": "module"
+}
