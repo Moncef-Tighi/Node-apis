@@ -5,8 +5,15 @@ const router = Router();
 
 
 router.get('/', function(request, response) {
-    const results = movies.filter(movie=> movie.most_popular);
-    response.json(results);
+    let page = request.query.page;
+    if (!page) page=1;
+    let results = movies.filter(movie=> movie.most_popular);
+    const startingIndex= (page-1)*10;
+
+    response.json({
+        page,
+        results : results.slice(startingIndex, startingIndex+9)
+    });
 })
 
 
