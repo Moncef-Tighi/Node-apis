@@ -881,4 +881,4 @@ const movies = [
     vote_count:6574
   }
 ]
-module.exports = movies;
+export default movies

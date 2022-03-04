@@ -1,10 +1,12 @@
 import {Router} from 'express'
+import movies from '../data-movies/movies.js';
 
-router = Router();
+const router = Router();
 
 
 router.get('/', function(request, response) {
-    response.json('test');
+    const results = movies.filter(movie=> movie.most_popular);
+    response.json(results);
 })
 
 

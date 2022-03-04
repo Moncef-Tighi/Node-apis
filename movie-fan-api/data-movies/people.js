@@ -292,4 +292,4 @@ const people = [
     adult:false
   }
 ]
-module.exports = people;
+export default people
