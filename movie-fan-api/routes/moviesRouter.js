@@ -60,9 +60,15 @@ router.post('movie/:id/rating', checkJson, (request, response) => {
 
 })
 
-router.delete('movie/:id/rating', (request, response) => {
+router.delete('/:id/rating', (request, response) => {
     const id = request.params.id;
 
+    return response.status(200).json({
+        status : true,
+        body : {
+            msg : "Your rating for this movie have been deleted"
+        }
+    })
 })
 
 export default router;
