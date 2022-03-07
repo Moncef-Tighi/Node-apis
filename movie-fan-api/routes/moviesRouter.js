@@ -1,8 +1,20 @@
-import {request, Router} from 'express'
+import {Router} from 'express'
 
 const router = Router();
 import movies from '../data-movies/movies.js';
 import movieDetails from '../data-movies/movieDetails.js';
+
+const checkJson = function(request, response, next) {
+    if (!request.is('application/json')) {
+        return response.status(403).json({
+            status : false,
+            body : {
+                error : "Content type must be application/json"
+            },
+        })
+    }
+    next();
+}
 
 router.param(('id'), (request, response, next) => {
     console.log("id utilisé");
@@ -37,8 +49,14 @@ router.get('/:id', function(request, response) {
 })
 
 
-router.post('movie/:id/rating', (request, response) => {
+router.post('movie/:id/rating', checkJson, (request, response) => {
     const id = request.params.id;
+
+    const userRating= request.body.value;
+    if (!userRating) return response.status(403).json({msg : 'No rating have been found in the request...'})
+
+    if (userRating<0.5 || userRating>10) return response.status(403).json({msg : 'The rating is out of bound'})
+
 
 })
 
