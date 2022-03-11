@@ -8,10 +8,17 @@ describe("ficher à tester", ()=>{
         console.log("---After---")
     } )
 
-    afterEach( ()=> {
-        console.log("---");
+    beforeEach( ()=> {
+        console.log(">");
     }) 
     context('nom function', ()=> {
+        before( ()=> {
+            console.log("--Start--")
+        } )
+        after( ()=> {
+            console.log("--End--")
+        } )
+    
         it("should so do this", ()=> {
             assert.equal(1,1);
         })
@@ -20,6 +27,23 @@ describe("ficher à tester", ()=>{
         })
         it('failling test', ()=> {
             assert.equal({name : 'nom'}, {name : 'nom'});
+        })
+
+    })
+
+    context('Autre fonction', ()=> {
+        before( ()=> {
+            console.log("--Start--")
+        } )
+        after( ()=> {
+            console.log("--End--")
+        } )
+    
+        it("new equal", ()=> {
+            assert.equal(1,1);
+        })
+        it('Fin', ()=> {
+            assert.deepEqual({name : 'nom'}, {name : 'nom'});
         })
 
     })
