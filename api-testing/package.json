@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "chai": "^4.3.6"
+    "chai": "^4.3.6",
+    "chai-as-promised": "^7.1.1"
   },
   "name": "api-testing",
   "version": "1.0.0",
@@ -9,7 +10,8 @@
     "test": "test"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "sinon": "^13.0.1"
   },
   "scripts": {
     "test": "cross-env NODE_ENV=development mocha test --recursive"

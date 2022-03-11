@@ -4,6 +4,7 @@ const chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised);
 const demo = require("../src/demo.js");
+const sinon = require("sinon");
 
 describe('demo', ()=> {
     context('add', ()=> {
@@ -40,6 +41,14 @@ describe('demo', ()=> {
             await expect(demo.addPromise(1,2)).to.eventually.equal(3);
         })
 
+    })
+
+    context('Test spied', ()=> {
+        it("should spy en cas de log", ()=> {
+            let spy = sinon.spy(console, 'log');
+            demo.foo();
+            expect(spy.calledOnce).to.be.true;
+        })
     })
  
 })
