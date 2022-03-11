@@ -1,6 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
+console.log(process.env.NODE_ENV);
 describe("File name", ()=> {
     it("Should compare values", ()=>{
         expect(1).to.equal(1);

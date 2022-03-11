@@ -1,5 +1,20 @@
 {
   "dependencies": {
     "chai": "^4.3.6"
-  }
+  },
+  "name": "api-testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=development mocha test --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
