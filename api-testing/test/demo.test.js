@@ -48,7 +48,15 @@ describe('demo', ()=> {
             let spy = sinon.spy(console, 'log');
             demo.foo();
             expect(spy.calledOnce).to.be.true;
+            spy.restore();
+        })
+        it("devrait stub l'appel de warn", ()=> {
+            let stub = sinon.stub(console, 'warn');
+            demo.foo();
+            expect(stub.calledOnce).to.be.true;
         })
     })
+
+
  
 })
